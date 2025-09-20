@@ -18,6 +18,7 @@ app.add_middleware(
 # MP3 fayllar saqlanadigan papka
 app.mount("/songs", StaticFiles(directory="songs"), name="songs")
 
+
 class Song(BaseModel):
     id: int
     title: str
@@ -25,9 +26,14 @@ class Song(BaseModel):
     year: int
     url: str
 
+
 SONGS = [
-    {"id": 1, "title": "Yalla – Ulug‘imsan vatanim", "artist": "Yalla", "year": 2020,
-     "url": "http://127.0.0.1:8000/songs/1.mp3", "img": "http://127.0.0.1:8000/images/1.jpg"},
+    {"id": 1,
+     "title": "Yalla – Ulug‘imsan vatanim",
+     "artist": "Yalla",
+     "year": 2020,
+     "url": "http://127.0.0.1:8000/songs/1.mp3",
+     "img": "http://127.0.0.1:8000/images/1.jpg"},
     {"id": 2, "title": "Sherali Jo‘rayev – O‘zbegim", "artist": "Sherali Jo‘rayev", "year": 2020,
      "url": "http://127.0.0.1:8000/songs/2.mp3", "img": "http://127.0.0.1:8000/images/2.jpg"},
     {"id": 3, "title": "Sevara Nazarkhan – Yor-yor", "artist": "Sevara Nazarkhan", "year": 2021,
@@ -68,9 +74,11 @@ SONGS = [
      "url": "http://127.0.0.1:8000/songs/20.mp3", "img": "http://127.0.0.1:8000/images/20.jpg"},
 ]
 
+
 @app.get("/songs", response_model=List[Song])
 def get_songs():
     return SONGS
+
 
 @app.get("/songs/{song_id}", response_model=Song)
 def get_song(song_id: int):
@@ -78,7 +86,3 @@ def get_song(song_id: int):
         if song["id"] == song_id:
             return song
     return {"error": "Qo'shiq topilmadi"}
-
-
-
-
