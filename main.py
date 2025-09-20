@@ -25,6 +25,7 @@ class Song(BaseModel):
     artist: str
     year: int
     url: str
+    img:str
 
 
 SONGS = [
@@ -34,8 +35,11 @@ SONGS = [
      "year": 2020,
      "url": "http://127.0.0.1:8000/songs/1.mp3",
      "img": "http://127.0.0.1:8000/images/1.jpg"},
-    {"id": 2, "title": "Sherali Jo‘rayev – O‘zbegim", "artist": "Sherali Jo‘rayev", "year": 2020,
-     "url": "http://127.0.0.1:8000/songs/2.mp3", "img": "http://127.0.0.1:8000/images/2.jpg"},
+    {"id": 2, 
+    "title": "Sherali Jo‘rayev – O‘zbegim",
+     "artist": "Sherali Jo‘rayev", "year": 2020,
+     "url": "http://127.0.0.1:8000/songs/2.mp3", 
+     "img": "http://127.0.0.1:8000/images/2.jpg"},
     {"id": 3, "title": "Sevara Nazarkhan – Yor-yor", "artist": "Sevara Nazarkhan", "year": 2021,
      "url": "http://127.0.0.1:8000/songs/3.mp3", "img": "http://127.0.0.1:8000/images/3.jpg"},
     {"id": 4, "title": "Yulduz Usmonova – Vatan", "artist": "Yulduz Usmonova", "year": 2021,
